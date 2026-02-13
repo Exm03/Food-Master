@@ -3,4 +3,7 @@
     <string name="app_log">Food \n Master</string>
     <string name="app_desc">Хотите вкусно покушать? Наша\nпрограмма идеально подойдет вам.\n У нас большой выбор вкусной еды</string>
     <string name="btn_main">Поиск еды</string>
+    <string name="categori_name1">Fast Food</string>
+    <string name="foodBtn">Посмотреть</string>
+    <string name="category_name2">Salads</string>
 </resources>
