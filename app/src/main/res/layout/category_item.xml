@@ -34,18 +34,36 @@
                 app:srcCompat="@drawable/burger"
                 android:contentDescription="@string/app_log"/>
 
-            <TextView
-                android:id="@+id/foodTitle"
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/app_log"
-                android:gravity="center"
-                android:textSize="20sp"
-                android:fontFamily="@font/inter_extrabold"
-                android:textStyle="bold"
-                android:layout_margin="10dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="10dp">
 
-                />
+                <TextView
+                    android:gravity="center"
+                    android:id="@+id/foodTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/inter_extrabold"
+                    android:text="@string/app_log"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+
+                    />
+
+                <ImageButton
+                    android:id="@+id/deleteBtn"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    app:srcCompat="@drawable/trash_alt_svgrepo_com"
+                    app:tint="@color/delete"
+                    android:contentDescription="Delete"/>
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/foodAnons"

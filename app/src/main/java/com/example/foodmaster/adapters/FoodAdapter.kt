@@ -9,12 +9,13 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.foodmaster.FoodPageActivity
 import com.example.foodmaster.R
 import com.example.foodmaster.models.Food
 
-class FoodAdapter(private var dishes: List<Food>, private var context: Context): RecyclerView.Adapter<FoodAdapter.MyViewHolder>() {
+class FoodAdapter(private var dishes: ArrayList<Food>, private var context: Context): RecyclerView.Adapter<FoodAdapter.MyViewHolder>() {
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -33,9 +34,23 @@ class FoodAdapter(private var dishes: List<Food>, private var context: Context):
             context.packageName
         )
 
+        holder.deleteBtn.setOnClickListener {
+            val pos = holder.adapterPosition
+            if (pos != RecyclerView.NO_POSITION){
+                dishes.removeAt(pos)
+                notifyItemRemoved(pos)
+                notifyItemRangeChanged(pos, dishes.size)
+            }
+        }
+
         holder.title.text = dishes[position].title
         holder.anons.text = dishes[position].anons
         holder.image.setImageResource(imageId)
+
+
+        holder.title.setOnClickListener {
+            holder.title.setTextColor(ContextCompat.getColor(this.context, R.color.delete) )
+        }
 
         holder.btn.setOnClickListener {
          val intent = Intent(context, FoodPageActivity::class.java)
@@ -58,6 +73,7 @@ class FoodAdapter(private var dishes: List<Food>, private var context: Context):
         val image: ImageView = view.findViewById(R.id.foodImage)
         val title: TextView = view.findViewById(R.id.foodTitle)
         val anons: TextView = view.findViewById(R.id.foodAnons)
+        val deleteBtn: ImageView = view.findViewById(R.id.deleteBtn)
 
         val btn: Button = view.findViewById(R.id.foodBtn)
 

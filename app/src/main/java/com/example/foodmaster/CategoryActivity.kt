@@ -42,4 +42,5 @@ class CategoryActivity : AppCompatActivity() {
         category2.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         category2.adapter = FoodAdapter(foodList2, this)
     }
+
 }
